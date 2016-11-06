@@ -1,8 +1,24 @@
 name := "jwtyped"
 
-version := "1.0"
+version := "0.1.0"
+
+organization := "com.github.etaty"
 
 scalaVersion := "2.11.8"
+
+licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html"))
+homepage := Some(url("https://github.com/etaty/jwtyped"))
+scmInfo := Some(ScmInfo(url("https://github.com/etaty/jwtyped"), "scm:git:git@github.com:etaty/jwtyped.git"))
+pomExtra := (
+  <developers>
+    <developer>
+      <id>etaty</id>
+      <name>Valerian Barbot</name>
+      <url>https://github.com/etaty/</url>
+    </developer>
+  </developers>
+  )
+publishMavenStyle := true
 
 libraryDependencies ++= {
   val specs2V = "3.8.6"

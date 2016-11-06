@@ -1,6 +1,6 @@
 # JWTyped
 
-[![Build Status](https://travis-ci.org/etaty/jwtyped.svg?branch=master)](https://travis-ci.org/etaty/jwtyped) [![codecov](https://codecov.io/gh/etaty/jwtyped/branch/master/graph/badge.svg)](https://codecov.io/gh/etaty/jwtyped)
+[![Build Status](https://travis-ci.org/etaty/jwtyped.svg?branch=master)](https://travis-ci.org/etaty/jwtyped) [![codecov](https://codecov.io/gh/etaty/jwtyped/branch/master/graph/badge.svg)](https://codecov.io/gh/etaty/jwtyped) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.etaty/jwtyped_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.etaty/jwtyped_2.11)
 
 
 Opinionated implementation of JWT in scala
