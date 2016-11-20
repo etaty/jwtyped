@@ -10,6 +10,6 @@ case class Message(header: String, payload: String) {
 
 object Message {
   def from[H: Encoder, P: Encoder](header: H, payload: P)(implicit encoderH: Encoder[H], encoderP: Encoder[P]): Message = {
-    Message(JWT.base64Encode(encoderH(header)), JWT.base64Encode(encoderP(payload)))
+    Message(Base64Helper.encode(encoderH(header)), Base64Helper.encode(encoderP(payload)))
   }
 }

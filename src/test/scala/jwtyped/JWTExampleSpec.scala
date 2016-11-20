@@ -2,6 +2,7 @@ package jwtyped
 
 import java.security.{KeyPairGenerator, Security}
 
+import jwtyped.algorithm._
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import org.specs2.ScalaCheck
 import org.specs2.mutable.SpecificationLike
@@ -51,7 +52,7 @@ class JWTExampleSpec
       }
 
       "encode with URLEncodedSecret (Auth0)" in {
-        JWT.base64Encode("secret".getBytes) mustEqual "c2VjcmV0"
+        Base64Helper.encode("secret".getBytes) mustEqual "c2VjcmV0"
 
         val secret = Secret.from64UrlEncoded("c2VjcmV0")
         val algorithm = HS256(secret)
@@ -145,7 +146,7 @@ class JWTExampleSpec
 
         val keyPair = KeyPairGenerator.getInstance("ECDSA", "BC").generateKeyPair()
 
-        val es256 = ES512(keyPair)
+        val es256 = ES256(keyPair.getPublic, keyPair.getPrivate)
 
         val message = Message.from(header, payload)
 

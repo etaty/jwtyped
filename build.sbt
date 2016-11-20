@@ -6,6 +6,8 @@ organization := "com.github.etaty"
 
 scalaVersion := "2.11.8"
 
+crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.0")
+
 licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html"))
 homepage := Some(url("https://github.com/etaty/jwtyped"))
 scmInfo := Some(ScmInfo(url("https://github.com/etaty/jwtyped"), "scm:git:git@github.com:etaty/jwtyped.git"))
