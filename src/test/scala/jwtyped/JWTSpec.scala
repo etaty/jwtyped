@@ -2,6 +2,7 @@ package jwtyped
 
 import java.security.{KeyPairGenerator, Security}
 
+import jwtyped.algorithm._
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import org.specs2.ScalaCheck
 import org.specs2.matcher.MatchResult
@@ -20,7 +21,7 @@ class JWTSpec
     Security.addProvider(new BouncyCastleProvider())
   }
 
-  def encode(header: Header, payload: Payload)(algorithm: Algorithm): MatchResult[Any] = {
+  def encode[Algo: Sign : Verify](header: Header, payload: Payload)(algorithm: Algo): MatchResult[Any] = {
     val message = Message.from(header, payload)
 
     val tokenEncoded = JWT.encode(message, algorithm)
@@ -161,7 +162,7 @@ class JWTSpec
       "encode" in {
         val keyPair = KeyPairGenerator.getInstance("ECDSA", "BC").generateKeyPair()
 
-        val es256 = ES512(keyPair)
+        val es256 = ES256(keyPair.getPublic, keyPair.getPrivate)
         encode(header, payload)(es256)
       }
     }

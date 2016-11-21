@@ -1,4 +1,4 @@
-package jwtyped
+package jwtyped.algorithm
 
 import java.nio.charset.StandardCharsets
 import java.util.Base64
